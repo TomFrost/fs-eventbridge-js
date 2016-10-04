@@ -9,7 +9,7 @@ npm install --save fs-eventbridge-js
 
 ## Usage
 
-```
+```javascript
 const FSEventBridgeClient = require('fs-eventbridge-js')
 
 const bridge = new FSEventBridgeClient({host: 192.168.1.12})
@@ -28,8 +28,8 @@ Creates a new client. You'll need one of these per server you want to connect to
 
 Options:
 
-- **host** _(Default: localhost)_: he hostname or IP address to which to connect
-- **port** _(Default: 65056)_: The port to which to connect
+- **host** _(Default: localhost)_: The hostname or IP address with which to connect
+- **port** _(Default: 65056)_: The port with which to connect
 - **watch** _(Default: `process.cwd()`)_: The directory to be watched for changes
 - **recursive** _(Default: true)_: If true, all subdirectories and their files will also be watched
 - **persistent** _(Default: false)_: If true, prevents the Node.js process from ending while the client is monitoring for file changes.
@@ -54,7 +54,7 @@ Emitted whenever the connection to the FS-EventBridge server has an unexpected i
 Emitted whenever the FS-EventBridge server communicates an error. These have no long-term impact on the client, but may signify that a file change event did not propagate to the remote operating system.
 
 #### `error_file` Error
-Emitted when the client cannot stat a changed file. These have no long-term impact on the client, but may signify that a file change event did not propagate to the remote operating system.
+Emitted when the client cannot `stat` a changed file. These have no long-term impact on the client, but may signify that a file change event did not propagate to the remote operating system.
 
 #### `response` string
 Emitted when the server sends any response. This is useful for debug logging.
@@ -63,4 +63,4 @@ Emitted when the server sends any response. This is useful for debug logging.
 FS-EventBridge-JS is distributed under the ISC license. See `LICENSE` file for details.
 
 ## Credits
-FS-EventBridge-JS was created by Tom Shawver at TechnologyAdvice.
+FS-EventBridge-JS was created by Tom Shawver at [TechnologyAdvice](http://technologyadvice.com).
