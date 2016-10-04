@@ -17,8 +17,8 @@ class FSEventBridgeClient extends EventEmitter {
   /**
    * Constructs a new FSEventBridgeClient
    * @param {Object} opts An option mapping
-   * @param {string} [opts.host="localhost"] The hostname or IP address to which to connect
-   * @param {number} [opts.port=65056] The port to which to connect
+   * @param {string} [opts.host="localhost"] The hostname or IP address with which to connect
+   * @param {number} [opts.port=65056] The port with which to connect
    * @param {string} [opts.watch=process.cwd()] The directory to be watched for changes
    * @param {boolean} [opts.recursive=true] If true, all subdirectories and their files will also be watched
    * @param {boolean} [opts.persistent=false] If true, If true, prevents the Node.js process from ending while

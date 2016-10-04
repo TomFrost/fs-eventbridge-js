@@ -12,7 +12,7 @@ npm install --save fs-eventbridge-js
 ```javascript
 const FSEventBridgeClient = require('fs-eventbridge-js')
 
-const bridge = new FSEventBridgeClient({host: 192.168.1.12})
+const bridge = new FSEventBridgeClient({host: '192.168.1.12'})
 bridge.start().then(() => {
   // process.cwd() is currently being monitored for changes.
   // These filesystem events will be replicated in the target
