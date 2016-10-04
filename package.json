@@ -1,0 +1,34 @@
+{
+  "name": "fs-eventbridge-js",
+  "version": "0.1.0",
+  "description": "Node.js client for the FS-EventBridge server",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "mocha": "mocha",
+    "test": "npm run lint && npm run mocha"
+  },
+  "files": [ "src" ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TechnologyAdvice/fs-eventbridge-js.git"
+  },
+  "keywords": [
+    "inotify",
+    "fsevents",
+    "eventbridge",
+    "fs-eventbridge",
+    "fs_eventbridge"
+  ],
+  "author": "TechnologyAdvice <devteam@technologyadvice.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TechnologyAdvice/fs-eventbridge-js/issues"
+  },
+  "homepage": "https://github.com/TechnologyAdvice/fs-eventbridge-js#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.7.1",
+    "mocha": "^3.1.0"
+  }
+}
