@@ -23,6 +23,10 @@ class FSEventBridgeClient extends EventEmitter {
    * @param {boolean} [opts.recursive=true] If true, all subdirectories and their files will also be watched
    * @param {boolean} [opts.persistent=false] If true, If true, prevents the Node.js process from ending while
    * the client is monitoring for file changes.
+   * @param {number} [opts.ignoreMs=250] The number of milliseconds during which any further change notifications
+   * for a given file are ignored. This helps reduce load for rapidly-changing files, as well as prevents an infinite
+   * loop of reporting changes that were due to the last reported change.
+   * @param {boolean} [opts.ignoreHidden=true] Ignores file changes within hidden files and folders if true
    */
   constructor(opts) {
     super()
@@ -31,11 +35,14 @@ class FSEventBridgeClient extends EventEmitter {
       port: DEFAULT_PORT,
       watch: process.cwd(),
       recursive: true,
-      persistent: false
+      persistent: false,
+      ignoreMs: 250,
+      ignoreHidden: true
     }
     this._conn = {end: () => {}}
     this._opts = Object.assign({}, defaults, opts || {})
     this._connected = false
+    this._ignore = {}
   }
 
   get connected() {
@@ -55,13 +62,12 @@ class FSEventBridgeClient extends EventEmitter {
         recursive: this._opts.recursive
       }
       fs.watch(this._opts.watch, watchOpts, (type, file) => {
+        if (this._ignore[file] || FSEventBridgeClient.isHidden(file)) return undefined
+        this._ignore[file] = true
+        setTimeout(() => { delete this._ignore[file] }, this._opts.ignoreMs)
         this.emit('changed', file)
-        fs.stat(file, (err, stat) => {
-          if (err) return this.emit('file_error', err)
-          const abs = path.join(process.cwd(), file)
-          const mtimeSecs = Math.floor(stat.mtime.getTime() / 1000000)
-          this._conn.write(`CHANGE ${abs} ${mtimeSecs}\n`)
-        })
+        const abs = path.join(process.cwd(), file)
+        this._conn.write(`CHANGE ${abs}\n`)
       })
     })
   }
@@ -86,14 +92,12 @@ class FSEventBridgeClient extends EventEmitter {
   _connect() {
     let strBuf = ''
     return new Promise((resolve, reject) => {
-      this._conn = net.connect(this._opts.port, this._opts.host, err => {
-        if (err) reject(err)
-        else resolve()
-      })
+      this._conn = net.connect(this._opts.port, this._opts.host, resolve)
       this._conn.once('end', () => this.stop())
       this._conn.once('error', (e) => {
         this.stop()
         this.emit('connection_error', e)
+        reject(e)
       })
       this._conn.on('data', (buf) => {
         strBuf += buf.toString()
@@ -102,6 +106,10 @@ class FSEventBridgeClient extends EventEmitter {
         lines.forEach(line => this._handleLine(line))
       })
     })
+  }
+
+  static isHidden(file) {
+    return file[0] === '.' || file.includes(`${path.sep}.`)
   }
 }
 

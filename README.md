@@ -33,6 +33,8 @@ Options:
 - **watch** _(Default: `process.cwd()`)_: The directory to be watched for changes
 - **recursive** _(Default: true)_: If true, all subdirectories and their files will also be watched
 - **persistent** _(Default: false)_: If true, prevents the Node.js process from ending while the client is monitoring for file changes.
+- **ignoreMs** _(Default: 250)_: The number of milliseconds during which any further change notifications for a given file are ignored. This helps reduce load for rapidly-changing files, as well as prevents an infinite loop of reporting changes that were due to the last reported change.
+- **ignoreHidden** _(Default: true)_: Ignores file changes within hidden files and folders if true
 
 #### `client.start()`
 Connects to the FS-EventBridge server and starts monitoring the filesystem for changes. Returns a Promise that resolves whenever a connection has been established, rejecting on connection failure. A resolved promise is returned if this is called during an active connection.

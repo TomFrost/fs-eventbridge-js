@@ -30,11 +30,10 @@ describe('FSEventBridgeClient', () => {
   })
   it('watches for file changes and sends change commands', (done) => {
     const nowMs = Date.now()
-    const nowSec = Math.floor(Date.now() / 1000)
     const file = path.join(process.cwd(), 'package.json')
     server = net.createServer(conn => {
       conn.on('data', data => {
-        data.toString().should.equal(`CHANGE ${file} ${nowSec}\n`)
+        data.toString().should.equal(`CHANGE ${file}\n`)
         done()
       })
     })
