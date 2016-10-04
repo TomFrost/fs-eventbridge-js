@@ -1,4 +1,4 @@
-# FS-EventBridge-JS [![Build Status](https://travis-ci.org/TechnologyAdvice/fs-eventbridge-js.svg?branch=master)](https://travis-ci.org/TechnologyAdvice/fs-eventbridge-js)
+# FS-EventBridge-JS [![Build Status](https://travis-ci.org/TechnologyAdvice/fs-eventbridge-js.svg?branch=master)](https://travis-ci.org/TechnologyAdvice/fs-eventbridge-js) [![Code Climate](https://codeclimate.com/github/TechnologyAdvice/fs-eventbridge-js/badges/gpa.svg)](https://codeclimate.com/github/TechnologyAdvice/fs-eventbridge-js)
 An ultra-lightweight Node.js client for the [FS-EventBridge](https://github.com/TechnologyAdvice/fs_eventbridge) filesystem change notification forwarder.
 
 ## Installation
