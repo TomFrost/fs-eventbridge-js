@@ -1,5 +1,5 @@
-# FS-EventBridge-JS [![Build Status](https://travis-ci.org/TechnologyAdvice/fs-eventbridge-js.svg?branch=master)](https://travis-ci.org/TechnologyAdvice/fs-eventbridge-js) [![Code Climate](https://codeclimate.com/github/TechnologyAdvice/fs-eventbridge-js/badges/gpa.svg)](https://codeclimate.com/github/TechnologyAdvice/fs-eventbridge-js)
-An ultra-lightweight Node.js client for the [FS-EventBridge](https://github.com/TechnologyAdvice/fs_eventbridge) filesystem change notification forwarder.
+# FS-EventBridge-JS [![Build Status](https://travis-ci.org/TomFrost/fs-eventbridge-js.svg?branch=master)](https://travis-ci.org/TomFrost/fs-eventbridge-js)
+An ultra-lightweight Node.js client for the [FS-EventBridge](https://github.com/TomFrost/fs_eventbridge) filesystem change notification forwarder.
 
 ## Installation
 
@@ -63,4 +63,4 @@ Emitted when the server sends any response. This is useful for debug logging.
 FS-EventBridge-JS is distributed under the ISC license. See `LICENSE` file for details.
 
 ## Credits
-FS-EventBridge-JS was created by Tom Shawver at [TechnologyAdvice](http://technologyadvice.com).
+FS-EventBridge-JS was originally created at [TechnologyAdvice](http://technologyadvice.com) in Nashville, TN.

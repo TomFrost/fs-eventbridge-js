@@ -16,5 +16,5 @@ Nothing yet!
 ### Added
 - Initial release
 
-[Development]: https://github.com/TechnologyAdvice/Squiss/compare/v0.2.0...HEAD
-[v0.2.0]: https://github.com/TechnologyAdvice/Squiss/compare/v0.1.0...v0.2.0
+[Development]: https://github.com/TomFrost/Squiss/compare/v0.2.0...HEAD
+[v0.2.0]: https://github.com/TomFrost/Squiss/compare/v0.1.0...v0.2.0

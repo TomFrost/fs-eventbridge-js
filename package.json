@@ -14,7 +14,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TechnologyAdvice/fs-eventbridge-js.git"
+    "url": "git+https://github.com/TomFrost/fs-eventbridge-js.git"
   },
   "keywords": [
     "inotify",
@@ -23,12 +23,12 @@
     "fs-eventbridge",
     "fs_eventbridge"
   ],
-  "author": "TechnologyAdvice <devteam@technologyadvice.com>",
+  "author": "Tom Shawver <tom@frosteddesign.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/TechnologyAdvice/fs-eventbridge-js/issues"
+    "url": "https://github.com/TomFrost/fs-eventbridge-js/issues"
   },
-  "homepage": "https://github.com/TechnologyAdvice/fs-eventbridge-js#readme",
+  "homepage": "https://github.com/TomFrost/fs-eventbridge-js#readme",
   "devDependencies": {
     "chai": "^3.5.0",
     "eslint": "^3.7.1",
